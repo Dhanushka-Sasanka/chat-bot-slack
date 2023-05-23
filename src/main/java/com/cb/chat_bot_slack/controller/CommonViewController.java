@@ -10,12 +10,12 @@ import org.springframework.web.servlet.ModelAndView;
 public class CommonViewController {
     /**
      * this method for render the upload APK file view
-     * @return index.html
+     * @return chat_bot.html
      */
     @RequestMapping("/index")
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("index.html");
+        modelAndView.setViewName("chat_bot.html");
         return modelAndView;
     }
 
