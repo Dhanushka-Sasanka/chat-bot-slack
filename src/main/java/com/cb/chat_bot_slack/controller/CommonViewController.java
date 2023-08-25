@@ -12,11 +12,45 @@ public class CommonViewController {
      * this method for render the upload APK file view
      * @return chat_bot.html
      */
-    @RequestMapping("/index")
+    @RequestMapping("/chat_bot")
     public ModelAndView index() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("chat_bot.html");
         return modelAndView;
     }
+
+    /**
+     * this method for render the upload APK file view
+     * @return user_dashboard.html
+     */
+    @RequestMapping("/dashboard")
+    public ModelAndView userDashboard() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("user_dashboard.html");
+        return modelAndView;
+    }
+
+//    /**
+//     * this method for render the upload APK file view
+//     * @return login.html
+//     */
+    @RequestMapping("/login")
+    public ModelAndView userLogin() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("login.html");
+        return modelAndView;
+    }
+
+    /**
+     * this method for render the upload APK file view
+     * @return sign_up.html
+     */
+    @RequestMapping("/signup")
+    public ModelAndView userSignup() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("signup.html");
+        return modelAndView;
+    }
+
 
 }
