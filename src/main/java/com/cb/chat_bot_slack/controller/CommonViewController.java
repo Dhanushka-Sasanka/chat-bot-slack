@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 @CrossOrigin("http://localhost:8080")
 public class CommonViewController {
     /**
-     * this method for render the upload APK file view
+     * this method for render the file view
      * @return chat_bot.html
      */
     @RequestMapping("/chat_bot")
@@ -20,20 +20,31 @@ public class CommonViewController {
     }
 
     /**
-     * this method for render the upload APK file view
+     * this method for render the file view
      * @return user_dashboard.html
      */
-    @RequestMapping("/dashboard")
+    @RequestMapping("/user-dashboard")
     public ModelAndView userDashboard() {
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("user_dashboard.html");
         return modelAndView;
     }
 
-//    /**
-//     * this method for render the upload APK file view
-//     * @return login.html
-//     */
+    /**
+     * this method for render the file view
+     * @return admin_dashboard.html
+     */
+    @RequestMapping("/admin-dashboard")
+    public ModelAndView adminDashboard() {
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.setViewName("admin_dashboard.html");
+        return modelAndView;
+    }
+
+    /**
+     * this method for render the file view
+     * @return login.html
+     */
     @RequestMapping("/login")
     public ModelAndView userLogin() {
         ModelAndView modelAndView = new ModelAndView();
@@ -42,7 +53,7 @@ public class CommonViewController {
     }
 
     /**
-     * this method for render the upload APK file view
+     * this method for render the file view
      * @return sign_up.html
      */
     @RequestMapping("/signup")

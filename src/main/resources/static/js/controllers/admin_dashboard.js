@@ -2,14 +2,14 @@ $(function () {
     let dashboard_user = $('.dashboard-users');
     let chats = $('.chats');
     let attendance = $('.attendance');
-    // let user_manage = $('.user_manage');
+    let user_manage = $('.user_manage');
     let user_report = $('.user_report');
     let navigate_location = $('#navigate-location');
 
     dashboard_user.show();
     chats.hide();
     attendance.hide();
-    // user_manage.hide();
+    user_manage.hide();
     user_report.hide();
 
 
@@ -25,14 +25,25 @@ $(function () {
         navigate_location.text("CHATS")
         dashboard_user.hide();
         attendance.hide();
+        user_manage.hide();
         user_report.hide();
         chats.show();
     });
 
+
+    $('#manage_user').click(function () {
+        navigate_location.text("MANAGE USERS")
+        dashboard_user.hide();
+        chats.hide();
+        attendance.hide();
+        user_report.hide();
+        user_manage.show();
+    });
     $('#reports_nav').click(function () {
         navigate_location.text("REPORTS")
         dashboard_user.hide();
         chats.hide();
+        user_manage.hide();
         attendance.hide();
         user_report.show();
     });
@@ -40,6 +51,7 @@ $(function () {
         navigate_location.text("ATTENDANCE")
         dashboard_user.hide();
         chats.hide();
+        user_manage.hide();
         user_report.hide();
         attendance.show();
     });
