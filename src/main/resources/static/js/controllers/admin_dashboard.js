@@ -5,12 +5,17 @@ $(function () {
     let user_manage = $('.user_manage');
     let user_report = $('.user_report');
     let navigate_location = $('#navigate-location');
+    let user_add_form = $('#user_add_form');
+    let manage_user_area = $('#manage-user-area');
+    let manage_update_area = $('#user_update_form');
 
     dashboard_user.show();
     chats.hide();
     attendance.hide();
     user_manage.hide();
     user_report.hide();
+    user_add_form.hide();
+    manage_update_area.hide();
 
 
     $('#dashboard_nav').click(function () {
@@ -37,7 +42,10 @@ $(function () {
         chats.hide();
         attendance.hide();
         user_report.hide();
+        user_add_form.hide();
+        manage_update_area.hide();
         user_manage.show();
+        manage_user_area.show();
     });
     $('#reports_nav').click(function () {
         navigate_location.text("REPORTS")

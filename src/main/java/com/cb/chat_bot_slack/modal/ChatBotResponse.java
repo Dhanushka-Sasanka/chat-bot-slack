@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class ChatBotResponse {
 
-    private String code;
-    private String message;
-    private String data;
+    private String recipient_id;
+    private String text;
+
 }

@@ -17,7 +17,6 @@ $(function () {
         navigate_location.text("DASHBOARD")
         chats.hide();
         attendance.hide();
-        user_manage.hide();
         user_report.hide();
         dashboard_user.show();
     });

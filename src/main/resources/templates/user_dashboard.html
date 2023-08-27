@@ -346,6 +346,7 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
         /* custom scrollbar */
         ::-webkit-scrollbar {
             width: 20px;
@@ -365,6 +366,7 @@
         ::-webkit-scrollbar-thumb:hover {
             background-color: #a8bbbf;
         }
+
     </style>
 </head>
 <body>
@@ -377,6 +379,11 @@
                     <span class="nav-item">DEV</span>
                 </a>
             </li>
+            <li><a style="color: darkgreen" href="#" class="nav-item"><span th:text="'Logged as : '"></span>
+                <span th:text="${#authentication.name}" id="logged_user"></span>&nbsp;
+                <span th:text="${#authentication.authorities}" id="logged_user_role"></span>
+            </a></li>
+            <li>
             <li>
                 <a href="#" id="dashboard_nav">
                     <i class="fas fa-menorah"></i>
@@ -389,24 +396,24 @@
                     <span class="nav-item">Message</span>
                 </a>
             </li>
-<!--            <li>-->
-<!--                <a href="#" id="manage_user">-->
-<!--                    <i class="fas fa-user"></i>-->
-<!--                    <span class="nav-item">Manage User</span>-->
-<!--                </a>-->
-<!--            </li>-->
+            <!--            <li>-->
+            <!--                <a href="#" id="manage_user">-->
+            <!--                    <i class="fas fa-user"></i>-->
+            <!--                    <span class="nav-item">Manage User</span>-->
+            <!--                </a>-->
+            <!--            </li>-->
             <li>
                 <a href="#" id="reports_nav">
                     <i class="fas fa-database"></i>
                     <span class="nav-item">Report</span>
                 </a>
             </li>
-<!--            <li>-->
-<!--                <a href="#" id="attendance_nav">-->
-<!--                    <i class="fas fa-chart-bar"></i>-->
-<!--                    <span class="nav-item">Attendance</span>-->
-<!--                </a>-->
-<!--            </li>-->
+            <!--            <li>-->
+            <!--                <a href="#" id="attendance_nav">-->
+            <!--                    <i class="fas fa-chart-bar"></i>-->
+            <!--                    <span class="nav-item">Attendance</span>-->
+            <!--                </a>-->
+            <!--            </li>-->
             <li>
                 <a href="#">
                     <i class="fas fa-cog"></i>
@@ -601,121 +608,25 @@
 
             <section class="chats">
 
-                <!--                <div th:replace="/chat_bot :: chatFragment"> </div>-->
-                <div class="chatbox">
-                    <div class="modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="msg-head">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="align-items-center" style="display: flex">
-                                                <span class="chat-icon"><img alt="image title"
-                                                                             class="img-fluid"
-                                                                             src="https://mehedihtml.com/chatbox/assets/img/arroleftt.svg"></span>
-                                            <div class="flex-shrink-0">
-                                                <img alt="user img"
-                                                     class="img-fluid"
-                                                     src="https://mehedihtml.com/chatbox/assets/img/user.png">
-                                            </div>
-                                            <div class="flex-grow-1 ms-3">
-                                                <h3>Mehedi Hasan</h3>
-                                                <p>front end developer</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--                                    <div class="col-4">-->
-                                    <!--                                        <ul class="moreoption">-->
-                                    <!--                                            <li class="navbar nav-item dropdown">-->
-                                    <!--                                                <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"-->
-                                    <!--                                                   href="#" role="button"><i-->
-                                    <!--                                                        aria-hidden="true" class="fa fa-ellipsis-v"></i></a>-->
-                                    <!--                                                <ul class="dropdown-menu">-->
-                                    <!--                                                    <li><a class="dropdown-item" href="#">Action</a></li>-->
-                                    <!--                                                    <li><a class="dropdown-item" href="#">Another action</a></li>-->
-                                    <!--                                                    <li>-->
-                                    <!--                                                        <hr class="dropdown-divider">-->
-                                    <!--                                                    </li>-->
-                                    <!--                                                    <li><a class="dropdown-item" href="#">Something else here</a>-->
-                                    <!--                                                    </li>-->
-                                    <!--                                                </ul>-->
-                                    <!--                                            </li>-->
-                                    <!--                                        </ul>-->
-                                    <!--                                    </div>-->
-                                </div>
-                            </div>
-
-                            <div class="modal-body">
-                                <div class="msg-body">
-                                    <ul>
-                                        <li class="sender">
-                                            <p> Hey, Are you there? </p>
-                                            <span class="time">10:06 am</span>
-                                        </li>
-                                        <li class="sender">
-                                            <p> Hey, Are you there? </p>
-                                            <span class="time">10:16 am</span>
-                                        </li>
-                                        <li class="repaly">
-                                            <p>yes!</p>
-                                            <span class="time">10:20 am</span>
-                                        </li>
-                                        <li class="sender">
-                                            <p> Hey, Are you there? </p>
-                                            <span class="time">10:26 am</span>
-                                        </li>
-                                        <li class="sender">
-                                            <p> Hey, Are you there? </p>
-                                            <span class="time">10:32 am</span>
-                                        </li>
-                                        <li class="repaly">
-                                            <p>How are you?</p>
-                                            <span class="time">10:35 am</span>
-                                        </li>
-                                        <li>
-                                            <div class="divider">
-                                                <h6>Today</h6>
-                                            </div>
-                                        </li>
-
-                                        <li class="repaly">
-                                            <p> yes, tell me</p>
-                                            <span class="time">10:36 am</span>
-                                        </li>
-                                        <li class="repaly">
-                                            <p>yes... on it</p>
-                                            <span class="time">junt now</span>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="send-box">
-                                <form action="">
-                                    <input aria-label="message…" id="chat_box_text" class="form-control" placeholder="Write message…"
-                                           type="text">
-
-                                    <button type="button" id="chat_bot_send_button"><i aria-hidden="true" class="fa fa-paper-plane"></i> Send
-                                    </button>
-                                </form>
-
-                                <div class="send-btns">
-                                    <div class="attach">
-                                        <div class="button-wrapper">
-                        <span class="label">
-                          <img alt="image title" class="img-fluid"
-                               src="https://mehedihtml.com/chatbox/assets/img/upload.svg"> attached file
-                        </span><input aria-label="Upload File" class="upload-box" id="upload" name="upload"
-                                      placeholder="Upload File"
-                                      type="file">
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                <section class="msger">
+                    <header class="msger-header">
+                        <div class="msger-header-title">
+                            <i class="fas fa-comment-alt"></i> Chat with Bot
                         </div>
-                    </div>
-                </div>
+                        <div class="msger-header-options">
+                            <span><i class="fas fa-cog"></i></span>
+                        </div>
+                    </header>
+
+                    <main class="msger-chat" id="chat_bot_msg_body">
+                        <span class="loader" id="message_loading"></span>
+                    </main>
+
+                    <form class="msger-inputarea">
+                        <input type="text" class="msger-input" placeholder="Enter your message..." id="chat_box_text">
+                        <button type="button" class="msger-send-btn" id="chat_bot_send_button">Send</button>
+                    </form>
+                </section>
             </section>
 
 
@@ -806,6 +717,10 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script th:src="@{/js/baseURL.js}"></script>
+<script>
+    let messageLoading = $('#message_loading');
+    messageLoading.hide();
+</script>
 <script th:src="@{/js/sweetalert2.all.min.js}"></script>
 <script th:src="@{/js/controllers/user_dashboard.js}"></script>
 <script th:src="@{/js/controllers/user_chat_bot.js}"></script>

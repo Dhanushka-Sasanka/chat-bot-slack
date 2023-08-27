@@ -7,6 +7,8 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
 import java.util.Set;
 
 @Getter

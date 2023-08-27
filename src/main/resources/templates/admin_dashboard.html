@@ -9,17 +9,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet"/>
 
     <link rel="icon" th:href="@{/assets/icon-32.png}" type="image/x-icon">
-    <!--    &lt;!&ndash; Google Fonts &ndash;&gt;-->
-    <!--    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap"-->
-    <!--          rel="stylesheet">-->
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
-    <!--    <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"-->
-    <!--          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" rel="stylesheet">-->
-    <!--    <script crossorigin="anonymous"-->
-    <!--            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"-->
-    <!--            src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>-->
     <link rel="stylesheet" th:href="@{/css/styles.css}">
 
     <style>
@@ -274,6 +266,15 @@
             transition: 0.5rem;
         }
 
+        .btn-green {
+            padding: 6px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            background: #34AF6D;
+            border: 1px solid #4AD489;
+        }
+
+
         /* Navbar container */
         .navbar {
             overflow: hidden;
@@ -346,6 +347,7 @@
         .dropdown:hover .dropdown-content {
             display: block;
         }
+
         /* custom scrollbar */
         ::-webkit-scrollbar {
             width: 20px;
@@ -365,7 +367,65 @@
         ::-webkit-scrollbar-thumb:hover {
             background-color: #a8bbbf;
         }
+
+        /*form css*/
+        input[type=text],input[type=password], select, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical;
+        }
+
+        .form-label {
+            padding: 12px 12px 12px 0;
+            display: inline-block;
+        }
+
+        #user_edit_action_btn ,#user_insert_action_btn {
+            background-color: #04AA6D;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+
+        #user_edit_action_btn ,#user_insert_action_btn:hover {
+            background-color: #45a049;
+        }
+
+
+        .col-25 {
+            float: left;
+            width: 25%;
+            margin-top: 6px;
+        }
+
+        .col-75 {
+            float: left;
+            width: 75%;
+            margin-top: 6px;
+        }
+
+        /* Clear floats after the columns */
+        .row::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+            .col-25, .col-75, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+        }
     </style>
+
+
 </head>
 <body>
 <div class="container">
@@ -377,7 +437,10 @@
                     <span class="nav-item">Admin</span>
                 </a>
             </li>
-            <li>
+            <li><a style="color: darkgreen" href="#" class="nav-item"><span th:text="'Logged as : '"></span>
+                <span th:text="${#authentication.name}" id="logged_user"></span>&nbsp;
+                <span th:text="${#authentication.authorities}" id="logged_user_role" ></span>
+            </a></li>
                 <a href="#" id="dashboard_nav">
                     <i class="fas fa-menorah"></i>
                     <span class="nav-item">Dashboard</span>
@@ -427,6 +490,7 @@
     <section class="main">
         <div class="main-top">
             <h1 id="navigate-location" style="margin-left: 10px ; font-size: 20px ; font-weight: bold">DASHBOARD</h1>
+
             <div class="dropdown">
                 <button class="dropbtn">
                     <i class="fas fa-user-cog" id="logout_btn"></i>
@@ -601,142 +665,166 @@
 
             <section class="chats">
 
-                <!--                <div th:replace="/chat_bot :: chatFragment"> </div>-->
-                <div class="chatbox">
-                    <div class="modal-dialog-scrollable">
-                        <div class="modal-content">
-                            <div class="msg-head">
-                                <div class="row">
-                                    <div class="col-8">
-                                        <div class="align-items-center" style="display: flex">
-                                                <span class="chat-icon"><img alt="image title"
-                                                                             class="img-fluid"
-                                                                             src="https://mehedihtml.com/chatbox/assets/img/arroleftt.svg"></span>
-                                            <div class="flex-shrink-0">
-                                                <img alt="user img"
-                                                     class="img-fluid"
-                                                     src="https://mehedihtml.com/chatbox/assets/img/user.png">
-                                            </div>
-                                            <div class="flex-grow-1 ms-3">
-                                                <h3>Mehedi Hasan</h3>
-                                                <p>front end developer</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!--                                    <div class="col-4">-->
-                                    <!--                                        <ul class="moreoption">-->
-                                    <!--                                            <li class="navbar nav-item dropdown">-->
-                                    <!--                                                <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"-->
-                                    <!--                                                   href="#" role="button"><i-->
-                                    <!--                                                        aria-hidden="true" class="fa fa-ellipsis-v"></i></a>-->
-                                    <!--                                                <ul class="dropdown-menu">-->
-                                    <!--                                                    <li><a class="dropdown-item" href="#">Action</a></li>-->
-                                    <!--                                                    <li><a class="dropdown-item" href="#">Another action</a></li>-->
-                                    <!--                                                    <li>-->
-                                    <!--                                                        <hr class="dropdown-divider">-->
-                                    <!--                                                    </li>-->
-                                    <!--                                                    <li><a class="dropdown-item" href="#">Something else here</a>-->
-                                    <!--                                                    </li>-->
-                                    <!--                                                </ul>-->
-                                    <!--                                            </li>-->
-                                    <!--                                        </ul>-->
-                                    <!--                                    </div>-->
-                                </div>
-                            </div>
-
-                            <div class="modal-body">
-                                <div class="msg-body">
-                                    <ul>
-                                        <li class="sender">
-                                            <p> Hey, Are you there? </p>
-                                            <span class="time">10:06 am</span>
-                                        </li>
-                                        <li class="sender">
-                                            <p> Hey, Are you there? </p>
-                                            <span class="time">10:16 am</span>
-                                        </li>
-                                        <li class="repaly">
-                                            <p>yes!</p>
-                                            <span class="time">10:20 am</span>
-                                        </li>
-                                        <li class="sender">
-                                            <p> Hey, Are you there? </p>
-                                            <span class="time">10:26 am</span>
-                                        </li>
-                                        <li class="sender">
-                                            <p> Hey, Are you there? </p>
-                                            <span class="time">10:32 am</span>
-                                        </li>
-                                        <li class="repaly">
-                                            <p>How are you?</p>
-                                            <span class="time">10:35 am</span>
-                                        </li>
-                                        <li>
-                                            <div class="divider">
-                                                <h6>Today</h6>
-                                            </div>
-                                        </li>
-
-                                        <li class="repaly">
-                                            <p> yes, tell me</p>
-                                            <span class="time">10:36 am</span>
-                                        </li>
-                                        <li class="repaly">
-                                            <p>yes... on it</p>
-                                            <span class="time">junt now</span>
-                                        </li>
-
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <div class="send-box">
-                                <form action="">
-                                    <input aria-label="message…" class="form-control" placeholder="Write message…"
-                                           type="text">
-
-                                    <button type="button"><i aria-hidden="true" class="fa fa-paper-plane"></i> Send
-                                    </button>
-                                </form>
-
-                                <div class="send-btns">
-                                    <div class="attach">
-                                        <div class="button-wrapper">
-                        <span class="label">
-                          <img alt="image title" class="img-fluid"
-                               src="https://mehedihtml.com/chatbox/assets/img/upload.svg"> attached file
-                        </span><input aria-label="Upload File" class="upload-box" id="upload" name="upload"
-                                      placeholder="Upload File"
-                                      type="file">
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
+                <section class="msger">
+                    <header class="msger-header">
+                        <div class="msger-header-title">
+                            <i class="fas fa-comment-alt"></i> Chat with Bot
                         </div>
-                    </div>
-                </div>
+                        <div class="msger-header-options">
+                            <span><i class="fas fa-cog"></i></span>
+                        </div>
+                    </header>
+
+                    <main class="msger-chat"  id="chat_bot_msg_body">
+                        <span class="loader" id="message_loading"></span>
+
+                    </main>
+
+                    <form class="msger-inputarea">
+                        <input type="text" class="msger-input" placeholder="Enter your message..." id="chat_box_text">
+                        <button type="button" class="msger-send-btn" id="chat_bot_send_button">Send</button>
+                    </form>
+                </section>
             </section>
 
             <section class="user_manage">
                 <div class="attendance-list">
-                    <h1 style="font-size: 20px ; font-weight: bold">Manage Users</h1>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Email</th>
-                            <th>Name</th>
-                            <th>User Name</th>
-                            <th>Roles</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tbody id="userTable">
-                        </tbody>
-                    </table>
+                    <div style="display: flex;justify-content: space-between;">
+                        <h1 style="font-size: 20px ; font-weight: bold">Manage Users</h1>
+                        <button class="btn-green" style="float: right" id="user_add_btn"><i class="fas fa-plus"></i> NEW
+                        </button>
+                    </div>
+                    <div id="manage-user-area">
+                        <table class="table" style="margin-top: 10px">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Email</th>
+                                <th>Name</th>
+                                <th>User Name</th>
+                                <th>Roles</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody id="userTable">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="user_add_form">
+                        <form id="userInsertForm">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label class="form-label" for="fname">Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label class="form-label" for="username">User Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="username" name="lastname" placeholder="Your User name..">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label class="form-label" for="roles">Role Type</label>
+                                </div>
+                                <div class="col-75">
+                                    <select id="roles" name="roles">
+                                        <option value="ADMIN">ADMIN</option>
+                                        <option value="DEV">DEV</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label class="form-label" for="email">User Email</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="email" name="email" placeholder="Your E-mail..">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label class="form-label" for="email">User Password</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="password" id="password" name="password" placeholder="Your Password..">
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="row">
+                                <input type="button" value="Submit" id="user_insert_action_btn">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div id="user_update_form">
+                        <form id="userUpdateForm">
+                            <div class="row">
+                                <div class="col-25">
+                                    <label class="form-label" for="edit_fname">Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="edit_fname" name="firstname" placeholder="Your name..">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-25">
+                                    <label class="form-label" for="edit_username">User Name</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="edit_username" name="lastname" placeholder="Your User name..">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label class="form-label" for="edit_roles">Role Type</label>
+                                </div>
+                                <div class="col-75">
+                                    <select id="edit_roles" name="roles">
+                                        <option value="ADMIN">ADMIN</option>
+                                        <option value="DEV">DEV</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label class="form-label" for="edit_email">User Email</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="text" id="edit_email" name="email" placeholder="Your E-mail..">
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-25">
+                                    <label class="form-label" for="edit_email">User Password</label>
+                                </div>
+                                <div class="col-75">
+                                    <input type="password" id="edit_password" name="password" placeholder="Your Password..">
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="row">
+                                <label id="edit_user_id" style="display: none"></label>
+                                <input type="button" value="Edit" id="user_edit_action_btn">
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </section>
+
 
             <section class="user_report">
                 <div class="attendance-list">
@@ -825,8 +913,14 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script th:src="@{/js/baseURL.js}"></script>
+<script>
+    let messageLoading = $('#message_loading');
+    messageLoading.hide();
+</script>
+<script th:src="@{/js/sweetalert2.all.min.js}" type="application/javascript"></script>
 <script th:src="@{/js/controllers/admin_dashboard.js}"></script>
 <script th:src="@{/js/controllers/admin_user_manage.js}"></script>
+<script th:src="@{/js/controllers/user_chat_bot.js}"></script>
 </body>
 </html>
 

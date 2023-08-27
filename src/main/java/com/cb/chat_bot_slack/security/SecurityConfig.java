@@ -1,7 +1,6 @@
 package com.cb.chat_bot_slack.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -9,6 +8,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -36,19 +36,21 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterSecurity(HttpSecurity http) throws Exception {
-        http
+        http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests((authorize) ->
-                        authorize
-                                // Allow these URLs to be accessed without authentication
-                                .requestMatchers("signup").permitAll()
-                                .requestMatchers("admin-dashboard").hasRole("ADMIN")
-                                .requestMatchers("user-dashboard").hasRole("USER")
-                                .requestMatchers("admin-dashboard").permitAll()
+                                authorize
+                                        // Allow these URLs to be accessed without authentication
+                                        .requestMatchers("signup").permitAll()
+                                        .requestMatchers("admin-dashboard").hasRole("ADMIN")
+                                        .requestMatchers("user-dashboard").hasRole("DEV")
+//                                .requestMatchers("admin-dashboard").permitAll()
 //                                .requestMatchers("user-dashboard").permitAll()
 //                                .requestMatchers("dashboard").permitAll()
 //                                .requestMatchers("api/*").permitAll()
-                                .requestMatchers(HttpMethod.POST ,"api/chat-bot/").permitAll()
-                                .anyRequest().authenticated()
+//                                        .requestMatchers(HttpMethod.POST, "api/chat-bot/").authenticated()
+                                        .requestMatchers( "api/*/").authenticated()
+                                        .anyRequest().authenticated()
+//                                .permitAll()
 
                 ).formLogin(
                 form -> form
