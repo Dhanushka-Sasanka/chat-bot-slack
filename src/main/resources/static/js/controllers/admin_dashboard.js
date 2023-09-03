@@ -48,7 +48,7 @@ $(function () {
         manage_user_area.show();
     });
     $('#reports_nav').click(function () {
-        navigate_location.text("REPORTS")
+        navigate_location.text("PROMETHEUS MONITORING REPORTS")
         dashboard_user.hide();
         chats.hide();
         user_manage.hide();

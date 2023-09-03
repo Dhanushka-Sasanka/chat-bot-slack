@@ -48,9 +48,10 @@ public class SecurityConfig {
 //                                .requestMatchers("dashboard").permitAll()
 //                                .requestMatchers("api/*").permitAll()
 //                                        .requestMatchers(HttpMethod.POST, "api/chat-bot/").authenticated()
-                                        .requestMatchers( "api/*/").authenticated()
-                                        .anyRequest().authenticated()
-//                                .permitAll()
+//                                        .requestMatchers( "api/*/").authenticated()
+//                                        .anyRequest().authenticated()
+                                        .anyRequest().permitAll()
+
 
                 ).formLogin(
                 form -> form

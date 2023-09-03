@@ -1,14 +1,12 @@
 package com.cb.chat_bot_slack.entity;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
-import jakarta.persistence.*;
-
-import java.util.ArrayList;
 import java.util.Set;
 
 @Getter

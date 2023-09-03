@@ -828,84 +828,55 @@
 
             <section class="user_report">
                 <div class="attendance-list">
-                    <h1 style="font-size: 20px ; font-weight: bold">Manage Reports</h1>
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Depart</th>
-                            <th>Date</th>
-                            <th>Join Time</th>
-                            <th>Logout Time</th>
-                            <th>Details</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>01</td>
-                            <td>Sam David</td>
-                            <td>Design</td>
-                            <td>03-24-22</td>
-                            <td>8:00AM</td>
-                            <td>3:00PM</td>
-                            <td>
-                                <button>View</button>
-                            </td>
-                        </tr>
-                        <tr class="active">
-                            <td>02</td>
-                            <td>Balbina Kherr</td>
-                            <td>Coding</td>
-                            <td>03-24-22</td>
-                            <td>9:00AM</td>
-                            <td>4:00PM</td>
-                            <td>
-                                <button>View</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>03</td>
-                            <td>Badan John</td>
-                            <td>testing</td>
-                            <td>03-24-22</td>
-                            <td>8:00AM</td>
-                            <td>3:00PM</td>
-                            <td>
-                                <button>View</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>04</td>
-                            <td>Sara David</td>
-                            <td>Design</td>
-                            <td>03-24-22</td>
-                            <td>8:00AM</td>
-                            <td>3:00PM</td>
-                            <td>
-                                <button>View</button>
-                            </td>
-                        </tr>
-                        <!-- <tr >
-                          <td>05</td>
-                          <td>Salina</td>
-                          <td>Coding</td>
-                          <td>03-24-22</td>
-                          <td>9:00AM</td>
-                          <td>4:00PM</td>
-                          <td><button>View</button></td>
-                        </tr>
-                        <tr >
-                          <td>06</td>
-                          <td>Tara Smith</td>
-                          <td>Testing</td>
-                          <td>03-24-22</td>
-                          <td>9:00AM</td>
-                          <td>4:00PM</td>
-                          <td><button>View</button></td>
-                        </tr> -->
-                        </tbody>
-                    </table>
+                    <h1 style="font-size: 20px ; font-weight: bold">Alert Report</h1>
+
+                    <div class="main-container">
+                        <div class="cards" id="alert_area">
+
+<!--                            <div class="card card-1">-->
+<!--                                <div class="card__icon"><i class="fas fa-bolt"></i></div>-->
+<!--                                <h2 class="card__title" id="alert_detail_1">Ut enim ad minim veniam.</h2>-->
+<!--                                <p class="card__apply">-->
+<!--&lt;!&ndash;                                    <a class="card__link" >DOWN <i class="fas fa-arrow-right"></i></a>&ndash;&gt;-->
+<!--                                    <h2 id="alert_detail_1_status">HELLO</h2>-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <div class="card card-2">-->
+<!--                                <div class="card__icon"><i class="fas fa-bolt"></i></div>-->
+<!--                                <h2 class="card__title" id="alert_detail_2">Ut enim ad minim veniam.</h2>-->
+<!--                                <p class="card__apply">-->
+<!--&lt;!&ndash;                                    <a class="card__link" >DOWN <i class="fas fa-arrow-right"></i></a>&ndash;&gt;-->
+<!--                                <h2 id="alert_detail_2_status">HELLO</h2>-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <div class="card card-3">-->
+<!--                                <div class="card__icon"><i class="fas fa-bolt"></i></div>-->
+<!--                                <h2 class="card__title" id="alert_detail_3">Ut enim ad minim veniam.</h2>-->
+<!--                                <p class="card__apply">-->
+<!--&lt;!&ndash;                                    <a class="card__link" >DOWN <i class="fas fa-arrow-right"></i></a>&ndash;&gt;-->
+<!--                                <h2 id="alert_detail_3_status">HELLO</h2>-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <div class="card card-4">-->
+<!--                                <div class="card__icon"><i class="fas fa-bolt"></i></div>-->
+<!--                                <h2 class="card__title" id="alert_detail_4">Ut enim ad minim veniam.</h2>-->
+<!--                                <p class="card__apply">-->
+<!--&lt;!&ndash;                                    <a class="card__link" >DOWN <i class="fas fa-arrow-right"></i></a>&ndash;&gt;-->
+<!--                                <h2 id="alert_detail_4_status">HELLO</h2>-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            -->
+<!--                            <div class="card card-2">-->
+<!--                                <div class="card__icon"><i class="fas fa-bolt"></i></div>-->
+<!--                                <h2 class="card__title" id="alert_detail_6"></h2>-->
+<!--                                <p class="card__apply">-->
+<!--&lt;!&ndash;                                    <a class="card__link" >DOWN <i class="fas fa-arrow-right"></i></a>&ndash;&gt;-->
+<!--                                <h2 id="alert_detail_6_status">HELLO</h2>-->
+<!--                                </p>-->
+<!--                            </div>-->
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </div>
@@ -921,6 +892,7 @@
 <script th:src="@{/js/controllers/admin_dashboard.js}"></script>
 <script th:src="@{/js/controllers/admin_user_manage.js}"></script>
 <script th:src="@{/js/controllers/user_chat_bot.js}"></script>
+<script th:src="@{/js/controllers/admin_alert_reports.js}"></script>
 </body>
 </html>
 
